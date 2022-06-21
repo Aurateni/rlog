@@ -2,6 +2,7 @@
 
 {% block content %}
     <h1>Привет, {{ current_user.username }}!</h1>
+    {% if form %}
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -13,9 +14,14 @@
         </p>
         <p>{{ form.submit() }}</p>
     </form>
+    {% endif %}
     {% for post in posts %}
-    <p>
-        {{ post.author.username }} сообщил, что: <b>{{ post.body }}</b>
-    </p>
-        {% endfor %}
+        {% include '_post.html' %}
+    {% endfor %}
+    {% if prev_url %}
+    <a href="{{ prev_url }}">Новые посты</a>
+    {% endif %}
+    {% if next_url %}
+    <a href="{{ next_url }}">Старые посты</a>
+    {% endif %}
 {% endblock %}
