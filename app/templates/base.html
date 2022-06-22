@@ -29,9 +29,6 @@
                 </form>
                 {% endif %}
                 <ul class="nav navbar-nav navbar-right">
-
-                    <li><a href="{{ url_for('login') }}">{{ ('Вход') }}</a></li>
-
                     <li><a href="{{ url_for('user', username=current_user.username) }}">{{ ('Профиль') }}</a></li>
                     <li><a href="{{ url_for('logout') }}">{{ ('Выход') }}</a></li>
 
